@@ -9,7 +9,7 @@ mod tests {
         let a: [i32; 5] = [1, 2, 3, 4, 5];
 
         // TODO: Get a slice called `nice_slice` out of the array `a` so that the test passes.
-        let nice_slice: &[i32] = &a[1..4];
+        let nice_slice: &[i32] = &a[1..4]; // reference needed as it borrows a part of a, it would error otherwise as rust will expect we had ownership over the array, which nice_slice doesn't
 
         assert_eq!([2, 3, 4], nice_slice);
     }
