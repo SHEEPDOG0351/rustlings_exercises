@@ -12,8 +12,20 @@
 // the quantity bought.
 // fn calculate_price_of_apples(???) -> ??? { ??? }
 
+fn calculate_price_of_apples(order: i32) -> i32 {
+    if order > 40 {
+        order
+    } else {
+        order * 2
+    }
+}
+
 fn main() {
     // You can optionally experiment here.
+    let cost1 = calculate_price_of_apples(50); // Discount applies
+    let cost2 = calculate_price_of_apples(30); // Regular price
+    println!("Cost for 50 apples: {}", cost1); // Output: 25
+    println!("Cost for 30 apples: {}", cost2); // Output: 60
 }
 
 // Don't change the tests!
