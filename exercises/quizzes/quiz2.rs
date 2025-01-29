@@ -17,6 +17,7 @@
 //   the first element is the string, the second one is the command.
 // - The output element is going to be a vector of strings.
 
+#[derive(PartialEq)]
 enum Command {
     Uppercase,
     Trim,
@@ -27,7 +28,25 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function as described above.
-    // pub fn transformer(input: ???) -> ??? { ??? }
+    pub fn transformer(input: &Vec<(String, Command)>) -> Vec<String> {
+        let mut results: Vec<String> = Vec::new();
+        for (test_string, command) in input {
+            let mut result = String::new();
+            if command == &Command::Uppercase {
+                result.push_str(&test_string.to_uppercase().to_string());
+            } else if command == &Command::Trim {
+                result.push_str(&test_string.trim().to_string());
+            } else if let Command::Append(n) = command {
+                for _ in 0..*n { // Append `n` copies of `test_string`
+                    result.push_str(test_string);
+                }
+            }
+
+            results.push(result);
+        };
+
+        results
+    }
 }
 
 fn main() {
